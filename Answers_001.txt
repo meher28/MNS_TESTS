@@ -1,0 +1,40 @@
+2.1 Provide an xpath for the first element with text "Body text 2" 
+//div[@class='body 1']/div[text()='Body text 2']
+or .//*[@id='content']/div[2]/div[2]
+
+2.2 Provide a CSS selector for the second element with text "Body text 3
+div.body-text:nth-child(3n+3)
+
+2.3 Provide an xpath for the element with text "Link 2" 
+//*[@id='content']/div[4]/li[3]/a/span
+or //a/span[text()='Link 2']
+
+2.4 How many elements are returned by the CSS selector "#content div"? 
+zero
+
+2.5 Using WebDriver, how would you return a Java Collection of String objects containing only the links within the div element with class "navigation"? 
+List<String> links = new ArraysList<String>();
+List<WebElements> linkElements = driver.findElements(By.css(".navigation"));
+for(WebElement linkElement : linkElements){
+links.add(linkElement.getText());
+}
+
+2.6 Where would the links within the div element with class "navigation" resolve to? 
+link list section
+
+excercise 3
+3. Shorten the xpath to the shortest possible that will uniquely identify the required element 
+//div[@id='main-page']/div[@id='main-page-content']/../input[@id='username']
+
+excercise 4
+4.1 What will happen when we compile and execute the code? 
+1. compile time error as price we are returning is string and we need to parse the string to int
+
+4.2 Are there any errors in the code? If so, rewrite the method below 
+//replace int price line with the following code
+try{
+int price = Integer.parseInt(webElement.findElements(By.id("price"))getText());
+}catch(ParseException e){
+e.printStackTrace();
+}
+
